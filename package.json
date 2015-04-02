@@ -1,0 +1,17 @@
+{
+  "name": "mgroshans-dotfiles",
+  "version": "1.0.0",
+  "description": "files with dots",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgroshans/dotfiles.git"
+  },
+  "author": "mgroshans",
+  "bugs": {
+    "url": "https://github.com/mgroshans/dotfiles/issues"
+  },
+  "homepage": "https://github.com/mgroshans/dotfiles",
+  "dependencies": {
+    "gulp": "git://github.com/gulpjs/gulp.git#4.0"
+  }
+}
