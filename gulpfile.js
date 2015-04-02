@@ -18,8 +18,15 @@ gulp.task('zshrc', function () {
         .pipe(gulp.dest(home));
 });
 
+gulp.task('tmux.conf', function () {
+    return gulp.src('tmux/.tmux.conf*')
+        .pipe(gulp.dest(home));
+});
+
 gulp.task('vim', gulp.parallel('vimrc'));
 
 gulp.task('zsh', gulp.parallel('zshrc', 'oh-my-zsh'));
 
-gulp.task('default', gulp.parallel('vim', 'zsh'));
+gulp.task('tmux', gulp.parallel('tmux.conf'));
+
+gulp.task('default', gulp.parallel('vim', 'zsh', 'tmux'));
