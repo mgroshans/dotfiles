@@ -15,3 +15,5 @@ function venv() {
     if [ ! -d "venv" ]; then virtualenv venv; fi
     source venv/bin/activate
 }
+
+alias global=". ~/git/btarricone/global-vpn-routing/venv/bin/activate && ~/git/btarricone/global-vpn-routing/add-global-routes.py"
