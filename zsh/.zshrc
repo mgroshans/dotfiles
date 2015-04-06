@@ -70,10 +70,40 @@ bindkey '^s' history-incremental-search-forward
 # make home/end behave like they should
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
-bindkey ${terminfo[khome]} beginning-of-line
-bindkey ${terminfo[kend]} end-of-line
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
 
 setopt transientrprompt
+
+# make up/down local
+bindkey '^[[A' up-line-or-local-history
+bindkey '^[[B' down-line-or-local-history
+bindkey "${terminfo[kcuu1]}" up-line-or-local-history
+bindkey "${terminfo[kcud1]}" down-line-or-local-history
+bindkey '^p' up-line-or-local-history
+bindkey '^n' down-line-or-local-history
+bindkey -M vicmd '^[[A' up-line-or-local-history
+bindkey -M vicmd '^[[B' down-line-or-local-history
+bindkey -M vicmd "${terminfo[kcuu1]}" up-line-or-local-history
+bindkey -M vicmd "${terminfo[kcud1]}" down-line-or-local-history
+bindkey -M vicmd '^p' up-line-or-local-history
+bindkey -M vicmd '^n' down-line-or-local-history
+bindkey -M vicmd 'k' up-line-or-local-history
+bindkey -M vicmd 'j' down-line-or-local-history
+
+up-line-or-local-history() {
+    zle set-local-history 1
+    zle up-line-or-history
+    zle set-local-history 0
+}
+zle -N up-line-or-local-history
+
+down-line-or-local-history() {
+    zle set-local-history 1
+    zle down-line-or-history
+    zle set-local-history 0
+}
+zle -N down-line-or-local-history
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
