@@ -7,6 +7,9 @@ export ZSH=/Users/mgroshans/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
+# Alias z -> j
+_Z_CMD=j
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -45,7 +48,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump owl jenv tmux vi-mode)
+plugins=(z owl jenv tmux vi-mode)
 
 # User configuration
 
