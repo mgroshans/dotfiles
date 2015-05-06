@@ -19,3 +19,12 @@ function venv() {
 alias global=". ~/git/btarricone/global-vpn-routing/venv/bin/activate && ~/git/btarricone/global-vpn-routing/add-global-routes.py && deactivate"
 
 alias fuck='$(thefuck $(fc -ln -1))'
+
+function gpu() {
+    current_branch=$(git rev-parse --abbrev-ref HEAD);
+    default_branch=$(git rev-parse --abbrev-ref origin/HEAD | awk -F "/" '{print $NF}');
+    if [ $current_branch != $default_branch ]; then
+        git checkout $default_branch;
+    fi
+    git pull upstream $default_branch;
+}
