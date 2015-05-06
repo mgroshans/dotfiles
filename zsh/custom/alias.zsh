@@ -17,3 +17,5 @@ function venv() {
 }
 
 alias global=". ~/git/btarricone/global-vpn-routing/venv/bin/activate && ~/git/btarricone/global-vpn-routing/add-global-routes.py && deactivate"
+
+alias fuck='$(thefuck $(fc -ln -1))'
