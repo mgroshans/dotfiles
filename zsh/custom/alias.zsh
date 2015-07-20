@@ -20,6 +20,7 @@ alias global=". ~/git/btarricone/global-vpn-routing/venv/bin/activate && ~/git/b
 
 alias fuck='$(thefuck $(fc -ln -1))'
 
+# Set origin/HEAD with `git remote set-head origin [-a|<branch>]` if needed
 function gpu() {
     current_branch=$(git rev-parse --abbrev-ref HEAD);
     default_branch=$(git rev-parse --abbrev-ref origin/HEAD | awk -F "/" '{print $NF}');
