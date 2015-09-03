@@ -29,3 +29,13 @@ function gpu() {
     fi
     git pull upstream $default_branch;
 }
+
+# Shows which files have changed compared to default branch
+function gcf() {
+    default_branch=$(git rev-parse --abbrev-ref origin/HEAD | awk -F "/" '{print $NF}');
+    git --no-pager diff --name-only $default_branch;
+}
+
+function calc() {
+    bc -l <<< "$@";
+}
