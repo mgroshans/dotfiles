@@ -36,6 +36,12 @@ function gcf() {
     git --no-pager diff --name-only $default_branch;
 }
 
+# Git interactive rebase with default branch
+function grb() {
+    default_branch=$(git rev-parse --abbrev-ref origin/HEAD | awk -F "/" '{print $NF}');
+    git rebase -i $default_branch;
+}
+
 # Checkout last git branch
 alias gcl="git checkout -"
 
