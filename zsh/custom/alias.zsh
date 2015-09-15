@@ -36,6 +36,9 @@ function gcf() {
     git --no-pager diff --name-only $default_branch;
 }
 
+# Checkout last git branch
+alias gcl="git checkout -"
+
 function calc() {
     bc -l <<< "$@";
 }
