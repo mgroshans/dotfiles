@@ -42,6 +42,12 @@ function grb() {
     git rebase -i $default_branch;
 }
 
+# Git diff default branch
+function gdm() {
+    default_branch=$(git rev-parse --abbrev-ref origin/HEAD | awk -F "/" '{print $NF}');
+    git diff $default_branch;
+}
+
 # Checkout last git branch
 alias gcl="git checkout -"
 
