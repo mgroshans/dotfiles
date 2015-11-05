@@ -54,3 +54,11 @@ alias gcl="git checkout -"
 function calc() {
     bc -l <<< "$@";
 }
+
+function loadaws() {
+    export `gpg -d ~/.credentials/$1.aws.gpg`
+}
+
+function unloadaws() {
+    unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
+}
