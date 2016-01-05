@@ -21,7 +21,7 @@ function venv() {
     source venv/bin/activate
 }
 
-alias global=". ~/git/btarricone/global-vpn-routing/venv/bin/activate && ~/git/btarricone/global-vpn-routing/add-global-routes.py && deactivate"
+alias global='owl vpn add-global-routes "$@"'
 
 alias fuck='$(thefuck $(fc -ln -1))'
 
