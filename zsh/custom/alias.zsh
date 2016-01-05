@@ -4,6 +4,11 @@ alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I rc"
 
 alias jp="jq '.'"
 
+function scurl { curl -s -w "\nhttp status: %{http_code}\n" "$@" | awk '
+    /^http status: [45][0-9]+/ {print "\033[31m" $0; next}
+    /^http status: [0-9]+/ {print "\033[32m" $0; next}
+    1 {print}
+'; }
 function jcurl { curl -s "$@" | jq '.'; }
 function jcs { curl -s -w "\n%{http_code}\n" "$@" | jq '.' --color-output -C | awk '
     /^\033\[0m[45][0-9]+/ {sub(/\033\[0m/,""); print "\033[31m" $0; next}
