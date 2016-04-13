@@ -2,6 +2,8 @@ alias activate="source venv/bin/activate"
 
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I rc"
 
+alias ws='/Applications/Wireshark.app/Contents/MacOS/Wireshark "$@"&'
+
 alias jp="jq '.'"
 
 function scurl { curl -s -w "\nhttp status: %{http_code}\n" "$@" | awk '
