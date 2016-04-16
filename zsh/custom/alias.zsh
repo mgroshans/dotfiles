@@ -62,6 +62,20 @@ function calc() {
     bc -l <<< "$@";
 }
 
+function change-realm() {
+    export `owl change-realm "$@" | cut -d ' ' -f 2-`
+    env=$(awk -F '-' '{print $NF}' <<< "$AWS_REALM")
+    color=37
+    if [[ $env == "dev" ]] ; then
+        color=36
+    elif [[ $env == "stage" ]] ; then
+        color=33
+    elif [[ $env == "prod" ]] ; then
+        color=31
+    fi
+    echo -e "Changed realm to \033[0;${color}m$AWS_REALM"
+}
+
 function loadaws() {
     export `gpg -d ~/.credentials/$1.aws.gpg`
 }
