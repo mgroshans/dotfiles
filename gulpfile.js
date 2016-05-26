@@ -29,4 +29,9 @@ gulp.task('zsh', gulp.parallel('zshrc', 'oh-my-zsh'));
 
 gulp.task('tmux', gulp.parallel('tmux.conf'));
 
-gulp.task('default', gulp.parallel('vim', 'zsh', 'tmux'));
+gulp.task('powerline', function () {
+    return gulp.src('powerline/**/*')
+        .pipe(gulp.dest(path.join(home, '.config/powerline/')));
+});
+
+gulp.task('default', gulp.parallel('vim', 'zsh', 'tmux', 'powerline'));
