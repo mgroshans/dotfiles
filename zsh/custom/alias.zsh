@@ -58,6 +58,11 @@ function gdm() {
 # Checkout last git branch
 alias gcl="git checkout -"
 
+# Clone repo and cd immediately
+function gcd() {
+    git clone "$@" && cd `basename "$1" .git`
+}
+
 function calc() {
     bc -l <<< "$@";
 }
