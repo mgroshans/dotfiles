@@ -68,7 +68,7 @@ function calc() {
 }
 
 function change-realm() {
-    export `owl change-realm "$@" | cut -d ' ' -f 2-`
+    eval `owl change-realm "$@"`
     env=$(awk -F '-' '{print $NF}' <<< "$AWS_REALM")
     color=37
     if [[ $env == "dev" ]] ; then
