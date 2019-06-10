@@ -12,6 +12,6 @@
   },
   "homepage": "https://github.com/mgroshans/dotfiles",
   "dependencies": {
-    "gulp": "git://github.com/gulpjs/gulp.git#4.0"
+    "gulp": "^4.0.2"
   }
 }
