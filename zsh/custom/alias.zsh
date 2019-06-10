@@ -81,10 +81,16 @@ function change-realm() {
     echo -e "Changed realm to \033[0;${color}m$AWS_REALM"
 }
 
-function loadaws() {
-    export `gpg -d ~/.credentials/$1.aws.gpg`
-}
-
-function unloadaws() {
-    unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
+function aws-login() {
+    eval `owl aws-login "$@"`
+    env=$(awk -F '-' '{print $NF}' <<< "$AWS_REALM")
+    color=37
+    if [[ $env == "dev" ]] ; then
+        color=36
+    elif [[ $env == "stage" ]] ; then
+        color=33
+    elif [[ $env == "prod" ]] ; then
+        color=31
+    fi
+    echo -e "Logged in to \033[0;${color}m$AWS_REALM"
 }
